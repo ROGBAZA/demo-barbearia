@@ -1,0 +1,14 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Executa todo dia à meia noite (UTC)
+  workflow_dispatch: # Permite rodar manualmente
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make API request to Supabase to keep it awake
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" https://xzsltthkgkoatmchixqo.supabase.co/rest/v1/

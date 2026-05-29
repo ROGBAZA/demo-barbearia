@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#111827"/>
+  <circle cx="600" cy="315" r="120" fill="#F59E0B"/>
+  <path d="M600 255C555.817 255 520 290.817 520 335C520 379.183 555.817 415 600 415C644.183 415 680 379.183 680 335C680 290.817 644.183 255 600 255Z" fill="#F59E0B"/>
+  <path d="M600 295C575.147 295 555 315.147 555 340V370C555 388.225 569.775 403 588 403H612C630.225 403 645 388.225 645 370V340C645 315.147 624.853 295 600 295Z" fill="#1F2937"/>
+  <path d="M600 275C610.493 275 619 266.493 619 256C619 245.507 610.493 237 600 237C589.507 237 581 245.507 581 256C581 266.493 589.507 275 600 275Z" fill="#1F2937"/>
+  <text x="600" y="500" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#F59E0B" text-anchor="middle">Route 66 - Barbearia</text>
+  <text x="600" y="550" font-family="Arial, sans-serif" font-size="24" fill="#FFFFFF" text-anchor="middle">Agende seu horário na melhor barbearia da cidade</text>
+</svg>

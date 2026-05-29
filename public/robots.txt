@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /t/*
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /configuracoes
+Disallow: /relatorios
+Disallow: /comissoes
+
+Sitemap: https://central-barber.vercel.app/sitemap.xml

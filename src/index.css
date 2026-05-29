@@ -1,0 +1,440 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+
+  /* Route 66 Barbershop Dark Theme */
+  :root {
+    /* Core blacks and deep grays */
+    --background: 0 0% 8%;
+    --foreground: 45 100% 85%;
+
+    /* Card styling with subtle elevation */
+    --card: 0 0% 12%;
+    --card-foreground: 45 100% 90%;
+
+    /* Popover styling */
+    --popover: 0 0% 10%;
+    --popover-foreground: 45 100% 90%;
+
+    /* Route 66 Gold primary theme */
+    --primary: 45 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: var(--primary) / 0.8;
+
+    /* Subtle secondary styling */
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 90%;
+
+    /* Muted elements */
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Accent with primary touch */
+    --accent: var(--primary) / 0.1;
+    --accent-foreground: var(--primary);
+
+    /* Destructive styling */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border and input styling */
+    --border: 0 0% 24%;
+    --input: 0 0% 18%;
+    --ring: var(--primary);
+
+    /* Sidebar Route 66 theme */
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: var(--primary);
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: var(--primary);
+
+    /* Route 66 specific design tokens */
+    --route66-gold: var(--primary);
+    --route66-gold-dark: var(--primary) / 0.8;
+    --route66-black: 0 0% 8%;
+    --route66-gray: 0 0% 16%;
+
+    /* Beautiful gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 12%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 12%), hsl(0 0% 16%));
+
+    /* Elegant shadows */
+    --shadow-gold: 0 4px 20px hsl(var(--primary) / 0.3);
+    --shadow-dark: 0 8px 32px hsl(0 0% 0% / 0.5);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 90%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+    --border: 0 0% 24%;
+    --input: 0 0% 18%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-border: 0 0% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased dark;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Prevenir scroll/arrastar acidental no celular */
+    touch-action: pan-y pinch-zoom;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow-x: hidden;
+  }
+
+  /* Permitir seleção de texto em inputs e áreas específicas */
+  input,
+  textarea,
+  select,
+  [contenteditable] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  /* Container principal do app */
+  #root,
+  .app-container {
+    touch-action: pan-y pinch-zoom;
+    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  /* Ajustes responsivos para celular */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    /* Reduzir paddings globais em telas pequenas */
+    .p-8 {
+      padding: 1.25rem !important;
+    }
+
+    .p-12 {
+      padding: 1.5rem !important;
+    }
+
+    .md\:p-8 {
+      padding: 1.25rem !important;
+    }
+
+    .md\:p-12 {
+      padding: 1.5rem !important;
+    }
+
+    .gap-8 {
+      gap: 1rem !important;
+    }
+
+    .gap-6 {
+      gap: 0.75rem !important;
+    }
+
+    /* Ajuste de grids */
+    .container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    /* Botões maiores para toque */
+    button:not(.p-0) {
+      min-height: 48px;
+    }
+  }
+
+  /* Route 66 custom animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes gold-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px hsl(var(--route66-gold) / 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 30px hsl(var(--route66-gold) / 0.5);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+
+  .gold-glow {
+    animation: gold-glow 2s ease-in-out infinite;
+  }
+
+  /* Refined Premium Effects */
+  .hover-card-premium {
+    @apply transition-all duration-500 border-white/5 hover:border-primary/20;
+  }
+
+  .hover-card-premium:hover {
+    transform: scale(1.02) translateY(-0.5rem);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-panel {
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite linear;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Utility Classes for Premium Look */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .premium-border {
+    position: relative;
+    border: 1px solid transparent;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+      linear-gradient(135deg, hsl(var(--route66-gold)), transparent, hsl(var(--route66-gold))) border-box;
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .mesh-gradient {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(at 0% 0%, hsla(45, 100%, 60%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(0, 0%, 100%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(45, 100%, 60%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(0, 0%, 100%, 0.05) 0px, transparent 50%);
+  }
+
+  .bg-dashboard-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1503951914875-aa227a94f3c2?q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Optimized Print Styles for Reports */
+  @media print {
+    body {
+      background: white !important;
+      color: black !important;
+    }
+
+    /* Hide UI noise */
+    .sidebar-container,
+    .header-container,
+    header,
+    nav,
+    aside,
+    button:not(.print-visible),
+    .no-print {
+      display: none !important;
+    }
+
+    /* Expand content */
+    main,
+    .container {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Make cards look like tables/sections */
+    .card,
+    .glass-card,
+    .glass-panel {
+      background: white !important;
+      border: 1px solid #eee !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      color: black !important;
+      page-break-inside: avoid;
+    }
+
+    /* Ensure text is black */
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    span,
+    td,
+    th {
+      color: black !important;
+    }
+
+    .text-primary,
+    .text-emerald-500,
+    .text-blue-400 {
+      color: black !important;
+      font-weight: bold;
+    }
+
+    /* Tables */
+    table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd !important;
+      padding: 8px !important;
+      text-align: left !important;
+    }
+
+    .badge,
+    [role="status"] {
+      border: 1px solid black !important;
+      background: white !important;
+      color: black !important;
+    }
+  }
+
+  /* Cinematic Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(234, 179, 8, 0.2);
+    border-radius: 20px;
+    transition: background 0.3s;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(234, 179, 8, 0.5);
+  }
+
+  /* Pulse Animation for Live Elements */
+  .pulse {
+    animation: premium-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes premium-pulse {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  /* Motion Blur Utilities */
+  .motion-blur-sm {
+    backdrop-filter: blur(8px) saturate(180%);
+  }
+}
