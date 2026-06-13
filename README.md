@@ -17,4 +17,4 @@ Sistema SaaS para gestão de barbearias.
 
 ## Link
 
-https://seusite.com
+https://seusite.com](https://barbearia-route66.vercel.app
