@@ -18,7 +18,7 @@ Sistema SaaS para gestão de barbearias.
 
 ## Link
 
-https://seusite.com](https://barbearia-route66.vercel.app
+https://central-barber.vercel.app
 
 <img width="252" height="148" alt="11111" src="https://github.com/user-attachments/assets/f1bd1fa0-c2fd-4a45-bb65-7a261397f5b3" />
 
